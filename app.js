@@ -22,7 +22,6 @@ mongoose.connect("mongodb://localhost/hrManagementSystem", {
 });
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 
 module.exports = app;

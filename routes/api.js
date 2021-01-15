@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Employee = require('../models/employee');
+const mongoose = require('mongoose');
+
 
 router.post("/employee/create", (req, res, next) => {
     const data = {
@@ -23,17 +25,26 @@ router.get("/employee/all", (req, res, next) => {
     });
 });
 
-router.get("/employee/:count", (req, res, next) => {
-    var query = Employee.find().sort('created', -1).limit(parseInt(req.params.count));
-    query.execFind(function(err, docs) {
+router.get("/employee/count/:count", (req, res, next) => {
+    var query = Employee.find().sort({'_id': -1}).limit(parseInt(req.params.count));
+    query.exec(function(err, docs) {
+        if (err) return console.log(err);
         return res.json(docs);
     });
 });
 
-router.get("/employee/:id", (req, res, next) => {
-    Employee.findOne({_id: req.params.id}).then(docs => {
-        return res.json(docs);
-    })
+router.get("/employee/id/:id", (req, res, next) => {
+    const isValidObjectId = mongoose.Types.ObjectId.isValid(req.params.id);
+
+    if (isValidObjectId) {
+        Employee.findOne({"_id": req.params.id}, (err, doc) => {
+            return res.json(doc);
+        });
+    } else {
+        Employee.findOne({"employee_id": req.params.id}, (err, doc) => {
+            return res.json(doc);
+        });
+    }
 });
 
 module.exports = router;

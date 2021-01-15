@@ -1,8 +1,8 @@
 import React from "react";
-import FormRes from "../components/Form";
+import SubmitForm from "../components/Form";
 
 function Home() {
-  return <FormRes />;
+  return <SubmitForm />;
 }
 
 export default Home;

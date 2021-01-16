@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Form, Col, Button, Container } from "react-bootstrap";
+import { Form, Col, Button, Container, Image } from "react-bootstrap";
+import PreviewModal from "../PreviewModal";
 
 function SubmitForm() {
   const [employee, setEmployee] = useState({
@@ -14,6 +15,7 @@ function SubmitForm() {
 
   function handleChange(e) {
     e.preventDefault();
+
     const { id, value } = e.target;
 
     console.log(id, value);
@@ -21,6 +23,27 @@ function SubmitForm() {
       ...employee,
       [id]: value,
     });
+  }
+
+  function handlePhoto(e) {
+    e.preventDefault();
+    console.log(e.target.files);
+
+    if (e.target.files.length > 0) {
+      let src = URL.createObjectURL(e.target.files[0]);
+      let preview = document.getElementById("file-ip-1-preview");
+      preview.src = src;
+      preview.style.display = "block";
+    }
+    // const objectURL = URL.createObjectURL(e.target.value);
+    // console.log(objectURL);
+    // const { id, value } = e.target;
+
+    // console.log(id, value);
+    // setEmployee({
+    //   ...employee,
+    //   [id]: value,
+    // });
   }
 
   function handleSubmit(e) {
@@ -79,18 +102,21 @@ function SubmitForm() {
             <Form.Label>Upload ID Card</Form.Label>
             <Form.Control
               placeholder="Formats: png, jpeg"
-              onChange={handleChange}
+              onChange={handlePhoto}
+              type="file"
+              accept="image/png, image/jpeg"
             />
           </Form.Group>
 
           <Button variant="secondary" onClick={handlePreview}>
-            Preview
+            <PreviewModal info={employee} />
           </Button>
           <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>
       </Container>
+      <Image id="file-ip-1-preview" src={employee.photo} />
     </div>
   );
 }

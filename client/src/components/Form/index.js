@@ -37,13 +37,13 @@ function SubmitForm() {
     }
     // const objectURL = URL.createObjectURL(e.target.value);
     // console.log(objectURL);
-    // const { id, value } = e.target;
+    const { id, value } = e.target;
 
-    // console.log(id, value);
-    // setEmployee({
-    //   ...employee,
-    //   [id]: value,
-    // });
+    console.log(id, value);
+    setEmployee({
+      ...employee,
+      [id]: value,
+    });
   }
 
   function handleSubmit(e) {
@@ -116,7 +116,7 @@ function SubmitForm() {
           </Button>
         </Form>
       </Container>
-      <Image id="file-ip-1-preview" src={employee.photo} />
+      <Image id="file-ip-1-preview" />
     </div>
   );
 }

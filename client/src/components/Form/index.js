@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Col, Button, Container, Image } from "react-bootstrap";
+import { Form, Col, Button, Container } from "react-bootstrap";
 import PreviewModal from "../PreviewModal";
 
 function SubmitForm() {
@@ -27,22 +27,13 @@ function SubmitForm() {
 
   function handlePhoto(e) {
     e.preventDefault();
-    console.log(e.target.files);
 
-    if (e.target.files.length > 0) {
-      let src = URL.createObjectURL(e.target.files[0]);
-      let preview = document.getElementById("file-ip-1-preview");
-      preview.src = src;
-      preview.style.display = "block";
-    }
-    // const objectURL = URL.createObjectURL(e.target.value);
-    // console.log(objectURL);
-    const { id, value } = e.target;
-
-    console.log(id, value);
+    const { id } = e.target;
+    let src = URL.createObjectURL(e.target.files[0]);
+    console.log(id, src);
     setEmployee({
       ...employee,
-      [id]: value,
+      [id]: src,
     });
   }
 
@@ -55,8 +46,6 @@ function SubmitForm() {
     e.preventDefault();
     console.log("bye");
   }
-
-  console.log(employee);
 
   return (
     <div>
@@ -116,7 +105,6 @@ function SubmitForm() {
           </Button>
         </Form>
       </Container>
-      <Image id="file-ip-1-preview" />
     </div>
   );
 }

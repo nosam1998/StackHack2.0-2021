@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Image } from "react-bootstrap";
 
 function PreviewModal(props) {
   console.log(props);
@@ -8,7 +8,7 @@ function PreviewModal(props) {
   return (
     <>
       <div variant="primary" onClick={() => setShow(true)}>
-        Custom Width Modal
+        Preview
       </div>
 
       <Modal
@@ -19,19 +19,22 @@ function PreviewModal(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
-            Custom Modal Styling
+            Employee Information
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
-            Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
-            commodi aspernatur enim, consectetur. Cumque deleniti temporibus
-            ipsam atque a dolores quisquam quisquam adipisci possimus
-            laboriosam. Quibusdam facilis doloribus debitis! Sit quasi quod
-            accusamus eos quod. Ab quos consequuntur eaque quo rem! Mollitia
-            reiciendis porro quo magni incidunt dolore amet atque facilis ipsum
-            deleniti rem!
-          </p>
+          <div className="employeeInfo">
+            Name: {props.info.firstName} {props.info.lastName}
+          </div>
+          <div className="employeeInfo">
+            Organization Name: {props.info.orgName}
+          </div>
+          <div className="employeeInfo">
+            Employee ID no.: {props.info.employeeID}
+          </div>
+          <div className="employeeInfo">Mobile: {props.info.mobile}</div>
+          <div className="employeeInfo">Email: {props.info.email}</div>
+          <Image src={props.info.photo} fluid />
         </Modal.Body>
       </Modal>
     </>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Col, Button, Container } from "react-bootstrap";
 import PreviewModal from "../PreviewModal";
+import API from "../../utils/API";
 
 function SubmitForm() {
   const [employee, setEmployee] = useState({
@@ -40,6 +41,11 @@ function SubmitForm() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log("hi", employee);
+    API.saveEmployee(employee)
+      .then((res) => {
+        alert("Your info is set to the backend");
+      })
+      .catch((err) => console.log(err));
   }
 
   function handlePreview(e) {

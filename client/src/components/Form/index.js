@@ -60,28 +60,52 @@ function SubmitForm() {
           <Form.Row>
             <Form.Group as={Col} controlId="firstName">
               <Form.Label>First Name</Form.Label>
-              <Form.Control placeholder="Jane" onChange={handleChange} />
+              <Form.Control
+                placeholder="Jane"
+                onChange={handleChange}
+                // required
+              />
             </Form.Group>
 
             <Form.Group as={Col} controlId="lastName">
               <Form.Label>Last Name</Form.Label>
-              <Form.Control placeholder="Doe" onChange={handleChange} />
+              <Form.Control
+                placeholder="Doe"
+                onChange={handleChange}
+                // required
+              />
             </Form.Group>
           </Form.Row>
 
           <Form.Group controlId="orgName">
             <Form.Label>Organization Name</Form.Label>
-            <Form.Control placeholder="Google" onChange={handleChange} />
+            <Form.Control
+              placeholder="Google"
+              onChange={handleChange}
+              // required
+            />
           </Form.Group>
 
           <Form.Group controlId="employeeID">
             <Form.Label>Employee ID no.</Form.Label>
-            <Form.Control placeholder="123456" onChange={handleChange} />
+            <Form.Control
+              placeholder="123456"
+              onChange={handleChange}
+              // required
+              // type="number"
+              // min="0"
+            />
           </Form.Group>
 
           <Form.Group controlId="mobile">
             <Form.Label>Mobile no.</Form.Label>
-            <Form.Control placeholder="(123)456-7890" onChange={handleChange} />
+            <Form.Control
+              placeholder="(123)456-7890"
+              onChange={handleChange}
+              // required
+              // type="tel"
+              // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            />
           </Form.Group>
 
           <Form.Group controlId="email">
@@ -90,6 +114,7 @@ function SubmitForm() {
               type="email"
               placeholder="Enter email"
               onChange={handleChange}
+              // required
             />
           </Form.Group>
 
@@ -100,6 +125,7 @@ function SubmitForm() {
               onChange={handlePhoto}
               type="file"
               accept="image/png, image/jpeg"
+              // required
             />
           </Form.Group>
 

@@ -40,17 +40,12 @@ function SubmitForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("hi", employee);
+
     API.saveEmployee(employee)
       .then((res) => {
         alert("Your info is set to the backend");
       })
       .catch((err) => console.log(err));
-  }
-
-  function handlePreview(e) {
-    e.preventDefault();
-    console.log("bye");
   }
 
   return (
@@ -100,7 +95,7 @@ function SubmitForm() {
           <Form.Group controlId="mobile">
             <Form.Label>Mobile no.</Form.Label>
             <Form.Control
-              placeholder="(123)456-7890"
+              placeholder="123-456-7890"
               onChange={handleChange}
               // required
               // type="tel"
@@ -129,7 +124,7 @@ function SubmitForm() {
             />
           </Form.Group>
 
-          <Button variant="secondary" onClick={handlePreview}>
+          <Button variant="secondary">
             <PreviewModal info={employee} />
           </Button>
           <Button variant="primary" type="submit">

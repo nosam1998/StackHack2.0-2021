@@ -4,7 +4,7 @@ import { Navbar, Nav } from "react-bootstrap";
 function Navs() {
   return (
     <div>
-      <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="md">
         <Navbar.Brand href="/">Office Cafeteria App</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

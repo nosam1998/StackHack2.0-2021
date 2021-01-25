@@ -1,0 +1,9 @@
+input.form-control {
+  border: 1px solid gray;
+  transition: ease-in-out;
+  transition-delay: 50ms;
+}
+
+input.form-control:hover {
+  border: none;
+}

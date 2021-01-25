@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background: #8db2b5;
+}
+
+nav {
+  background: #628285;
+}
+
+td {
+  font-size: larger;
+}
+
+.form-group {
+  margin-top: 3%;
+}

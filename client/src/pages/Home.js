@@ -7,7 +7,6 @@ function Home() {
   return (
     <div>
       <Navs />
-      <Jumbo />
       <SubmitForm />
     </div>
   );
